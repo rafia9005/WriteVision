@@ -2,3 +2,4 @@ transformers
 Pillow
 torch
 requests
+argparse

@@ -1,25 +1,37 @@
 import os
-from preprocess import load_image_from_url, load_image_from_path
+import argparse
+from preprocess import load_image
 from model import load_model
-from utils import print_result
+from utils import print_result, validate_generated_text
+from logger import setup_logger
+
+logger = setup_logger()
 
 def main():
-    use_url = True
+    parser = argparse.ArgumentParser(description="Handwritten Text Recognition using TrOCR")
+    parser.add_argument("--input", type=str, required=True, help="Input type: 'url', 'path', or 'base64'")
+    parser.add_argument("--source", type=str, required=True, help="Source of the image (URL, file path, or base64 string)")
+    args = parser.parse_args()
 
-    if use_url:
-        url = 'https://fki.tic.heia-fr.ch/static/img/a01-122-02-00.jpg'
-        image = load_image_from_url(url)
-    else:
-        path = os.path.join("data", "sample_image.jpg")
-        image = load_image_from_path(path)
+    try:
+        logger.info("Loading image...")
+        image = load_image(args.input, args.source)
 
-    processor, model = load_model()
+        logger.info("Loading model...")
+        processor, model = load_model()
 
-    pixel_values = processor(images=image, return_tensors="pt").pixel_values
-    generated_ids = model.generate(pixel_values)
-    generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
+        logger.info("Processing image...")
+        pixel_values = processor(images=image, return_tensors="pt").pixel_values
+        generated_ids = model.generate(pixel_values)
+        generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
-    print_result(generated_text)
+        if validate_generated_text(generated_text):
+            print_result(generated_text)
+        else:
+            logger.warning("Generated text failed validation.")
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
+
