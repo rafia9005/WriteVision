@@ -1,6 +1,4 @@
-tensorflow
-keras
-opencv-python
-matplotlib
-numpy
-pandas
+transformers
+Pillow
+torch
+requests
