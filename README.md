@@ -36,9 +36,9 @@ pip install -r requirements.txt
 From URL
 To recognize text from an image URL:
 
-bash
-Copy
+```python
 python src/main.py --input url --source "https://fki.tic.heia-fr.ch/static/img/a01-122-02-00.jpg"
+```
 From Local Path
 To recognize text from a local image file:
 
@@ -48,22 +48,24 @@ python src/main.py --input path --source "data/sample_image.jpg"
 From Base64
 To recognize text from a Base64-encoded image string:
 
-bash
-Copy
+```python
 python src/main.py --input base64 --source "<base64-string>"
+```
 Replace <base64-string> with your actual Base64-encoded image data.
 
 Example
-bash
-Copy
 # From URL
+```python
 python src/main.py --input url --source "https://fki.tic.heia-fr.ch/static/img/a01-122-02-00.jpg"
-
+```
 # From Local Path
+```python
 python src/main.py --input path --source "data/sample_image.jpg"
-
+```
 # From Base64
+```python
 python src/main.py --input base64 --source "iVBORw0KGgoAAAANSUhEUgAA..."
+```
 License
 This project is licensed under the MIT License. See LICENSE for details.
 
