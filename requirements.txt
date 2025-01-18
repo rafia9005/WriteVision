@@ -1,0 +1,10 @@
+librosa==0.10.0
+noisereduce==1.0.0
+pyaudio==0.2.13
+soundfile==0.12.1
+numpy==1.23.5
+scipy==1.10.0
+sounddevice==0.4.6
+pydub==0.25.1
+matplotlib==3.7.1
+tqdm==4.65.0
