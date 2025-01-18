@@ -26,7 +26,7 @@ Usage
 1. Clone the Repository
 bash
 Copy
-git clone https://github.com/your-username/WriteVision.git
+git clone https://github.com/rafia9005/WriteVision.git
 cd WriteVision
 2. Install Dependencies
 bash
