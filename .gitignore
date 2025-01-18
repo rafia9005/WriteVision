@@ -2,11 +2,3 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-.vscode/
-.idea/
-*.wav
-*.mp3
-.env
-.DS_Store
-.ipynb_checkpoints/
