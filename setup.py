@@ -9,7 +9,8 @@ setup(
         "transformers",
         "Pillow",
         "requests",
-        "argparse"
+        "argparse",
+        "numpy"
     ],
     entry_points={
         "console_scripts": [
