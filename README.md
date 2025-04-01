@@ -69,5 +69,4 @@ python src/main.py --input base64 --source "iVBORw0KGgoAAAANSUhEUgAA..."
 License
 This project is licensed under the MIT License. See LICENSE for details.
 
-Feel free to contribute or adapt this project for your needs! 🚀
-
+Feel free to contribute or adapt this project for your needs! 🚀 😋
